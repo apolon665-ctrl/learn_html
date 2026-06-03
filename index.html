@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeCraft - Learn HTML & CSS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    .code-preview {
+      font-family: 'Courier New', monospace;
+      white-space: pre;
+    }
+    .lesson-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        CodeCraft
+      </h1>
+      <nav class="hidden md:flex space-x-8 text-lg">
+        <a href="#basics" class="hover:text-blue-600 transition">Basics</a>
+        <a href="#practice" class="hover:text-blue-600 transition">Practice</a>
+        <a href="#cheatsheet" class="hover:text-blue-600 transition">Cheatsheet</a>
+        <a href="#resources" class="hover:text-blue-600 transition">Resources</a>
+      </nav>
+      <button onclick="toggleDarkMode()" class="text-2xl">
+        <i class="fas fa-moon dark:hidden"></i>
+        <i class="fas fa-sun hidden dark:block"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="max-w-7xl mx-auto px-6 py-20 text-center">
+    <h2 class="text-5xl font-bold mb-6">Master HTML & CSS</h2>
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+      Interactive lessons, live code editor, cheatsheets, and projects to go from beginner to confident developer.
+    </p>
+    <button onclick="document.getElementById('practice').scrollIntoView({ behavior: 'smooth' })" 
+            class="mt-10 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-lg font-medium transition">
+      Start Learning Now →
+    </button>
+  </section>
+
+  <!-- Lessons Grid -->
+  <section id="basics" class="max-w-7xl mx-auto px-6 py-16">
+    <h3 class="text-3xl font-bold mb-10 text-center">Learning Path</h3>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="lesson-card bg-white dark:bg-gray-900 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 cursor-pointer">
+        <h4 class="text-xl font-semibold mb-2">1. HTML Basics</h4>
+        <p class="text-gray-600 dark:text-gray-400">Tags, structure, semantics, forms</p>
+      </div>
+      <div class="lesson-card bg-white dark:bg-gray-900 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 cursor-pointer">
+        <h4 class="text-xl font-semibold mb-2">2. CSS Fundamentals</h4>
+        <p class="text-gray-600 dark:text-gray-400">Selectors, box model, colors, typography</p>
+      </div>
+      <div class="lesson-card bg-white dark:bg-gray-900 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 cursor-pointer">
+        <h4 class="text-xl font-semibold mb-2">3. Flexbox Mastery</h4>
+        <p class="text-gray-600 dark:text-gray-400">Build responsive layouts easily</p>
+      </div>
+      <div class="lesson-card bg-white dark:bg-gray-900 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 cursor-pointer">
+        <h4 class="text-xl font-semibold mb-2">4. CSS Grid</h4>
+        <p class="text-gray-600 dark:text-gray-400">Modern 2D layout system</p>
+      </div>
+      <div class="lesson-card bg-white dark:bg-gray-900 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 cursor-pointer">
+        <h4 class="text-xl font-semibold mb-2">5. Responsive Design</h4>
+        <p class="text-gray-600 dark:text-gray-400">Mobile-first approach</p>
+      </div>
+      <div class="lesson-card bg-white dark:bg-gray-900 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 cursor-pointer">
+        <h4 class="text-xl font-semibold mb-2">6. Mini Projects</h4>
+        <p class="text-gray-600 dark:text-gray-400">Build real websites</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Practice Area -->
+  <section id="practice" class="max-w-7xl mx-auto px-6 py-16 bg-gray-100 dark:bg-gray-900">
+    <h3 class="text-3xl font-bold mb-8 text-center">Live Code Editor</h3>
+    <div class="grid lg:grid-cols-2 gap-6">
+      <div>
+        <h4 class="font-medium mb-3">HTML + CSS</h4>
+        <textarea id="code" class="w-full h-96 p-6 font-mono text-sm bg-gray-900 text-green-400 rounded-2xl border border-gray-700" spellcheck="false">
+&lt;div class="card"&gt;
+  &lt;h2&gt;Hello World!&lt;/h2&gt;
+  &lt;p&gt;Edit this code and see changes live.&lt;/p&gt;
+&lt;/div&gt;
+        </textarea>
+      </div>
+      <div>
+        <h4 class="font-medium mb-3">Preview</h4>
+        <div id="preview" class="w-full h-96 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-2xl p-8 overflow-auto">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cheatsheet -->
+  <section id="cheatsheet" class="max-w-7xl mx-auto px-6 py-16">
+    <h3 class="text-3xl font-bold mb-10 text-center">Quick Cheatsheet</h3>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-white dark:bg-gray-900 p-8 rounded-2xl">
+        <h4 class="text-xl font-semibold mb-6">Common HTML Tags</h4>
+        <ul class="space-y-4 text-sm">
+          <li><code class="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded"> &lt;section&gt; </code> - Semantic container</li>
+          <li><code class="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded"> &lt;header&gt; </code> - Top section</li>
+          <li><code class="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded"> &lt;button&gt; </code> - Clickable button</li>
+          <li><code class="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded"> &lt;img src="..."&gt; </code> - Images</li>
+        </ul>
+      </div>
+      <div class="bg-white dark:bg-gray-900 p-8 rounded-2xl">
+        <h4 class="text-xl font-semibold mb-6">Useful CSS Properties</h4>
+        <ul class="space-y-4 text-sm">
+          <li><code>display: flex;</code></li>
+          <li><code>display: grid;</code></li>
+          <li><code>gap: 1.5rem;</code></li>
+          <li><code>border-radius: 9999px;</code> (pill shape)</li>
+          <li><code>transition: all 0.3s ease;</code></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12 text-center">
+    <p>Made to help you learn HTML & CSS • Practice daily!</p>
+  </footer>
+
+  <script>
+    // Live Preview
+    const codeEditor = document.getElementById('code');
+    const preview = document.getElementById('preview');
+
+    function updatePreview() {
+      preview.innerHTML = codeEditor.value;
+    }
+
+    codeEditor.addEventListener('input', updatePreview);
+    updatePreview(); // Initial preview
+
+    // Dark Mode Toggle
+    function toggleDarkMode() {
+      document.documentElement.classList.toggle('dark');
+    }
+  </script>
+</body>
+</html>
